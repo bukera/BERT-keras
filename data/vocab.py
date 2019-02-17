@@ -59,7 +59,7 @@ class SentencePieceTextEncoder(TextEncoder):
                     'valid options are: unigram, bpe, char, word'.format(spm_model_type))
             spm.SentencePieceTrainer.Train(
                 '--input={input} --model_prefix={model_name} --vocab_size={vocab_size} '
-                '--character_coverage={coverage} --model_type={model_type} '
+                '--character_coverage={coverage} --model_type={spm_model_type} '
                 '--pad_id=-1 --unk_id=0 --bos_id=-1 --eos_id=-1 --input_sentence_size=100000000 '
                 '--training_sentence_size=100000000'.format(
                     input=text_corpus_address, model_name=model_name, vocab_size=vocab_size, coverage=1,
