@@ -49,7 +49,6 @@ class TextEncoder:
 
 
 class SentencePieceTextEncoder(TextEncoder):
-    import sentencepiece as spm
     def __init__(self, text_corpus_address: Optional[str], model_name: str = 'spm',
                  vocab_size: int = 30000, spm_model_type: str = 'unigram') -> None:
         super().__init__(vocab_size)
@@ -62,9 +61,6 @@ class SentencePieceTextEncoder(TextEncoder):
                 '--input={input} --model_prefix={model_name} --vocab_size={vocab_size} '
                 '--character_coverage={coverage} --model_type={spm_model_type} '
                 '--pad_id=-1 --unk_id=0 --bos_id=-1 --eos_id=-1 --input_sentence_size=100000000 '
-                '--training_sentence_size=100000000'.format(
-                    input=text_corpus_address, model_name=model_name, vocab_size=vocab_size, coverage=1,
-                    model_type=spm_model_type.lower()))
         self.sp = spm.SentencePieceProcessor()
         self.sp.load('{}.model'.format(model_name))
 
