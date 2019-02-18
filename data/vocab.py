@@ -60,7 +60,7 @@ class SentencePieceTextEncoder(TextEncoder):
             spm.SentencePieceTrainer.Train(
                 '--input={input} --model_prefix={model_name} --vocab_size={vocab_size} '
                 '--character_coverage={coverage} --model_type={spm_model_type} '
-                '--pad_id=-1 --unk_id=0 --bos_id=-1 --eos_id=-1 --input_sentence_size=100000000 '
+                '--pad_id=-1 --unk_id=0 --bos_id=-1 --eos_id=-1 --input_sentence_size=100000000 ')
         self.sp = spm.SentencePieceProcessor()
         self.sp.load('{}.model'.format(model_name))
 
